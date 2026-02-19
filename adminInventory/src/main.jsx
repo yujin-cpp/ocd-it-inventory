@@ -4,6 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { InventoryProvider } from './context/InventoryContext'
 import './index.css'
+import '@fontsource/dm-sans/400.css'
+import '@fontsource/dm-sans/500.css'
+import '@fontsource/dm-sans/700.css'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

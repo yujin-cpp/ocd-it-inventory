@@ -10,17 +10,17 @@ export default function Dashboard() {
   return (
     <Layout title="Dashboard">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white shadow rounded-lg p-4">
-          <h2 className="text-sm font-medium text-gray-500">Total Items</h2>
-          <p className="mt-2 text-2xl font-bold text-gray-900">{totalItems}</p>
+        <div className="bg-white rounded-lg p-6 border border-gray-100">
+          <h2 className="text-sm text-gray-500">Total Items</h2>
+          <p className="text-2xl font-semibold mt-1">{totalItems}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h2 className="text-sm font-medium text-gray-500">Total Quantity</h2>
-          <p className="mt-2 text-2xl font-bold text-gray-900">{totalQuantity}</p>
+        <div className="bg-white rounded-lg p-6 border border-gray-100">
+          <h2 className="text-sm text-gray-500">Total Quantity</h2>
+          <p className="text-2xl font-semibold mt-1">{totalQuantity}</p>
         </div>
-        <div className="bg-white shadow rounded-lg p-4">
-          <h2 className="text-sm font-medium text-gray-500">Categories</h2>
-          <p className="mt-2 text-2xl font-bold text-gray-900">
+        <div className="bg-white rounded-lg p-6 border border-gray-100">
+          <h2 className="text-sm text-gray-500">Categories</h2>
+          <p className="text-2xl font-semibold mt-1">
             {Array.from(new Set(items.map(item => item.category))).length}
           </p>
         </div>

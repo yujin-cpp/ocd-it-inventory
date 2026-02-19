@@ -1,5 +1,5 @@
 import { useInventory } from '../context/InventoryContext'
-import { Button } from './ui/Button'
+import { Button } from './ui/button'
 import { useNavigate } from 'react-router-dom'
 
 export default function InventoryTable() {

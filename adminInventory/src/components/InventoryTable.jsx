@@ -1,5 +1,5 @@
 import { useInventory } from '../context/InventoryContext'
-import { Button } from './ui/Button'
+import { Button } from './ui/button'
 import { useNavigate } from 'react-router-dom'
 
 export default function InventoryTable() {
@@ -7,7 +7,7 @@ export default function InventoryTable() {
   const navigate = useNavigate()
 
   return (
-    <table className="table-auto w-full border-collapse border border-gray-200">
+    <table className="table-auto w-full border-collapse border border-gray-200 drop-shadow-sm rounded-lg overflow-hidden">
       <thead className="bg-gray-100">
         <tr>
           <th className="border px-4 py-2">Name</th>

@@ -14,7 +14,7 @@ export default function InventoryForm({ initialData = {}, onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white shadow rounded-lg p-6 space-y-4 max-w-md">
+    <form onSubmit={handleSubmit} className="bg-white border border-gray-300 rounded-lg p-6 space-y-4 max-w-md">
       <div className="space-y-1">
         <Label>Name</Label>
         <Input value={name} onChange={e => setName(e.target.value)} placeholder="Item Name" required />
@@ -27,7 +27,7 @@ export default function InventoryForm({ initialData = {}, onSubmit }) {
         <Label>Category</Label>
         <Input value={category} onChange={e => setCategory(e.target.value)} placeholder="Category" required />
       </div>
-      <Button type="submit">Save Item</Button>
+      <Button type="submit" className="cursor-pointer">Save Item</Button>
     </form>
   )
 }

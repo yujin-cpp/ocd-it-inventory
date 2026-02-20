@@ -1,34 +1,79 @@
-import { useInventory } from '../context/InventoryContext'
-import { Button } from './ui/button'
-import { useNavigate } from 'react-router-dom'
+import { Button } from "./ui/button"
 
-export default function InventoryTable() {
-  const { items, deleteItem } = useInventory()
-  const navigate = useNavigate()
-
+export default function InventoryTable({
+  items = [],
+  onDelete,
+  onEdit,
+}) {
   return (
-    <table className="table-auto w-full border-collapse border border-gray-200">
-      <thead className="bg-gray-100">
-        <tr>
-          <th className="border px-4 py-2">Name</th>
-          <th className="border px-4 py-2">Quantity</th>
-          <th className="border px-4 py-2">Category</th>
-          <th className="border px-4 py-2">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {items.map(item => (
-          <tr key={item.id} className="hover:bg-gray-50">
-            <td className="border px-4 py-2">{item.name}</td>
-            <td className="border px-4 py-2">{item.quantity}</td>
-            <td className="border px-4 py-2">{item.category}</td>
-            <td className="border px-4 py-2 flex gap-2">
-              <Button variant="outline" onClick={() => navigate(`/inventory/edit/${item.id}`)}>Edit</Button>
-              <Button variant="destructive" onClick={() => deleteItem(item.id)}>Delete</Button>
-            </td>
+    <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+      <table className="w-full table-fixed text-left">
+
+        {/* Define fixed column widths */}
+        <colgroup>
+          <col className="w-[35%]" />
+          <col className="w-[25%]" />
+          <col className="w-[20%]" />
+          <col className="w-[20%]" />
+        </colgroup>
+
+        <thead className="border-b bg-gray-50">
+          <tr>
+            <th className="p-3 font-medium">Item</th>
+            <th className="p-3 font-medium">Category</th>
+            <th className="p-3 font-medium">Quantity</th>
+            <th className="p-3 font-medium">Actions</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          {items.length === 0 ? (
+            <tr>
+              <td colSpan="4" className="p-4 text-center text-gray-500">
+                No items found
+              </td>
+            </tr>
+          ) : (
+            items.map((item) => (
+              <tr key={item.id} className="border-b hover:bg-gray-50">
+
+                {/* truncate prevents resizing */}
+                <td className="p-3 truncate">{item.name}</td>
+
+                <td className="p-3 truncate">
+                  {item.category}
+                </td>
+
+                <td className="p-3">
+                  {item.quantity}
+                </td>
+
+                <td className="p-2">
+                  <div className="flex gap-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => onEdit(item)}
+                    >
+                      Edit
+                    </Button>
+
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => onDelete(item.id)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                </td>
+
+              </tr>
+            ))
+          )}
+        </tbody>
+
+      </table>
+    </div>
   )
 }

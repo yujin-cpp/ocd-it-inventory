@@ -18,7 +18,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "px-4 py-2 rounded-md font-medium transition",
+        "px-4 py-1.5 rounded-2xl text-xs transition",
         variants[variant],
         className
       )}

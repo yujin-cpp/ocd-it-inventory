@@ -7,7 +7,6 @@ export default function Sidebar() {
   const links = [
     { name: 'Dashboard', path: '/' },
     { name: 'Inventory', path: '/inventory' },
-    { name: 'Add Item', path: '/inventory/add' },
   ]
 
   return (
@@ -15,8 +14,8 @@ export default function Sidebar() {
       
       {/* Logo / Title */}
       <div className="flex items-center gap-2 mb-8">
-        <h1 className="h-6 text-2xl font-semibold text-[#8D8F92] flex items-center gap-0">
-          B<img src={o} alt="Logo" className="h-7 w-auto"/>DEGA
+        <h1 className="h-6 text-2xl font-semibold text-[#8D8F92] flex items-center gap-0 ml-1">
+          B<img src={o} alt="Logo" className="h-7 w-auto mx-0.5"/>DEGA
         </h1>
       </div>
 

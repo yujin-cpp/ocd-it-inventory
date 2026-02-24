@@ -10,13 +10,13 @@ export default function Inventory() {
 
   const [selectedCategory, setSelectedCategory] = useState('All')
 
-  // 🔹 Get unique categories dynamically
+  // Get unique categories dynamically
   const categories = useMemo(() => {
-    const unique = [...new Set(items.map(item => item.category))]
-    return ['All', ...unique]
+    const unique = [...new Set(items.map(item => item.category).filter(Boolean))]
+    return ['All', ...unique.sort()]
   }, [items])
 
-  // 🔹 Filter items based on selected category
+  // Filter items based on selected category
   const filteredItems =
     selectedCategory === 'All'
       ? items
@@ -48,15 +48,17 @@ export default function Inventory() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Quantity</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Unit Price</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {filteredItems.map(item => (
               <tr key={item.id}>
-                <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.itemName}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.quantity}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.category}</td>
+                <td className="px-6 py-4 whitespace-nowrap">₱{item.unitPrice.toFixed(2)}</td>
                 <td className="px-6 py-4 whitespace-nowrap flex gap-2">
                   <Button
                     variant="outline"
@@ -78,7 +80,7 @@ export default function Inventory() {
 
             {filteredItems.length === 0 && (
               <tr>
-                <td colSpan="4" className="text-center py-4 text-gray-500">
+                <td colSpan="5" className="text-center py-4 text-gray-500">
                   No inventory items found.
                 </td>
               </tr>

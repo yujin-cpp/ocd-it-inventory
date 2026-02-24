@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="OcdItInventory.Application/OcdItInventory.Application.csproj" />
+  <Project Path="OcdItInventory.Domain/OcdItInventory.Domain.csproj" />
+  <Project Path="OcdItInventory.Infrastructure/OcdItInventory.Infrastructure.csproj" />
+  <Project Path="OcdItInventory.Persistence/OcdItInventory.Persistence.csproj" />
+  <Project Path="OcdItInventory.Presentation/OcdItInventory.Presentation.csproj" />
+</Solution>
